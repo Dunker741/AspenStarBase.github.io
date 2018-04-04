@@ -58,7 +58,7 @@
         <div class="profile">
         <img src="img/billgates.jpg" class="rounded-circle portrait">
           <h5>Bill Gates</h5>
-          <p>BILL GATES.<br/>COMPUTER GENIUS.<br/>NET WORTH RIVALS SLOVAKIA'S GDP.</p>
+          <p>COMPUTER GENIUS.<br/>NET WORTH RIVALS SLOVAKIA'S GDP.</p>
         </div>
       </div>
       <br/>
@@ -156,30 +156,44 @@
   </div>
   </div>
   <script>
+
     $(document).ready(function(){
-      $('#title').hide().delay(500).fadeIn(3000);
-      $('#title2').hide().delay(2500).fadeIn(3000);
+      $('#title').hide().delay(500).fadeIn(1000);
+      $('#title2').hide().delay(1500).fadeIn(1000);
     });
-    
-    $("document").ready(function() {
-      $(".menu-icon").on("click", function() {
-        $("nav ul").toggleClass("showing");
-      });
-    });
+ 
 
     $(window).on("scroll", function(){
       if($(window).scrollTop()){
-        $('nav').addClass('white');
+        $('nav').removeClass('black');
+        $('nav').css({'background': 'url("img/warp.jpg")'}).fadeIn('slow');
+ 
       } else {
-        $('nav').removeClass('white');
+        $('nav').addClass('black');
       }
     });
 
-    $(document).ready(function(){
-      $('#title').hide().delay(500).fadeIn(3000);
-      $('#title2').hide().delay(2500).fadeIn(3000);
+
+    $(".menu-icon").on("click", function() {
+        $("nav ul").toggleClass("showing");
+        $('nav').css({'background': 'black'});
     });
 
+
+     
+    $(window).scroll(function(){
+        parallax();    
+    });
+
+    function parallax() {
+      var wScroll = $(window).scrollTop();
+      
+      $('body').css('background-position', 'center '+(wScroll*1.25)+'px');
+    }
+
+    
+
+      
 
   </script>
 </body>
